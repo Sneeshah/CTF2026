@@ -1,0 +1,19 @@
+# Irish Name Repo Series
+
+
+## Description:
+No idea what it is about, but it is labeled a medium difficulty task.
+
+
+### Irish-Name-Repo1
+
+#### Question: Do you think you can log us in? Try to see if you can login!
+
+
+ 1) site has problems with the name Conan O'Brien, prolly cause 'is sql
+ 2) in network tab I see debug= in the post request. but it should just be name and passwort
+ 3) in the html I can set debug to 1 and now I don't just get login failed but a whole message with the sql query username and password used
+ 4) gotta inject sql code here, anything that sets username to true and then escapes the rest with a comment work
+ 5) ' or '1'='1' --
+ 6) picoCTF{s0m3_SQL_85832275}
+ 7) Note: needed quite some time for this, need to brush up on sql injections and web exploits for sure.
