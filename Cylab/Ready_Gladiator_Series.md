@@ -23,3 +23,13 @@ Your opponent is the Imp. The source is available here.
  1) just found the dwarf.red program will let it run against it
  2) picoCTF{1mp_1n_7h3_cr055h41r5_ec57a42e}
  3) Codewars is a funny thing, doubt I will go for more but cool nonetheless
+
+
+### Ready Gladiator 2
+
+#### Question: Can you make a CoreWars warrior that wins?
+
+
+ 1) used imp itself with pre increment as a reddit solution got me there (unfortunately it was asked to solve pico so a bit boring)
+ 2) picoCTF{d3m0n_3xpung3r_106bc275}
+
