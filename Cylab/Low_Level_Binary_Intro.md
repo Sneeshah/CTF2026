@@ -155,8 +155,19 @@ Some introduction to binary hacking, assembly, python etc
   1) program prints num is 64 and Bye whatever string we put in
   2) 64 is hardcoded, bye is too. But win is triggered if num is 65 somehow
   3) gets(method) is used for input - gets is suepr dangerous (even has a warning in man gets)
-  4) so if we make our input with the right size we can override the whole buffer and then change num to 65 
-
+  4) so if we make our input with the right size we can override the whole buffer and then change num to 65
+  5) now to find the correct input we need to find the start of the buffer. Fortunately we can see where gets() is called in gdb
+  6) going back from the gets() call we see mov rdi, rax and lea rax, [rbp-0x20] this is what we need. The first argument is always written to rdi in this case to rax and then to rdi so the size is 0x20 (32 in decimal)
+  7) num=64 is easy to find too, 64 is 0x40 in hex which we can see at <main+12> mov DWORD PTR [rbp-0x8], 0x40
+  8) So num is saved at rbp-0x8
+  9) 0x20-0x8 = 0x18 (24 in dec)
+  10) so we can just go one further (25) and win.
+  11) python -c "print('A'*25)" | nc .....
+  12) picoCTF{l0c4l5_1n_5c0p3_fee8ef05}
+  13) Note: need way more practice with this and assembly, some things are not clear still
+  14) Other solution: go into gdp just use pattern create 100 and copy the 100 letters. Then run <<< [100 letters] and look where the overflow happens (rbp here). Copy the letters in brackets and use it with pattern offsett [letters] and it will tell you the offsett is 25. Pretty advanced but good to know that gdb has a way to look for these with patterns.
+  15) Another samrt way to do it was to look at what numbers come back from the input and convert them to hex. if we then input the alphabet and comvert back we get 31353 which means we can replace zy with A and get the flag. This works because all letters in the alphabet are different so we get a number back that we can map 31353 (0x7a79 in hex, which is zy in ASCII) to zy. In this case the first 24 letters were basically padding and y is the first byte of num to get overwritten.
+      
 
 
 
