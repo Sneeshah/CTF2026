@@ -155,7 +155,7 @@ Some introduction to binary hacking, assembly, python etc
   1) program prints num is 64 and Bye whatever string we put in
   2) 64 is hardcoded, bye is too. But win is triggered if num is 65 somehow
   3) gets(method) is used for input - gets is suepr dangerous (even has a warning in man gets)
-  4) so if we make our input big enough we can just overwrite the whole stack
+  4) so if we make our input with the right size we can override the whole buffer and then change num to 65 
 
 
 
