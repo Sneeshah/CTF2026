@@ -169,8 +169,18 @@ Some introduction to binary hacking, assembly, python etc
   15) Another samrt way to do it was to look at what numbers come back from the input and convert them to hex. if we then input the alphabet and comvert back we get 31353 which means we can replace zy with A and get the flag. This works because all letters in the alphabet are different so we get a number back that we can map 31353 (0x7a79 in hex, which is zy in ASCII) to zy. In this case the first 24 letters were basically padding and y is the first byte of num to get overwritten.
       
 
+### buffer overflow 1
+#### Control the return address
 
-
+  1) tried to use the generated de bruijn sequence method in gdb and got an offsett of 37
+  2) but got no flag
+  3) I realized that I fucked up with the offsett. Since gdb tells me where it stopped I should have looked at the $eip register not at #ebp
+  4) this gave a pattern ofsett at 41 as likely. Later on after looking at solutions I found out https://zerosum0x0.blogspot.com/2016/11/overflow-exploit-pattern-generator.html does it better and gets the correct overflow offset of 44
+  5) Okay so in vuln there is lea eax, [ebp-0x28] this means we got 0x28 = 40 bytes to override. Then we need to override the ebp itself so another 4 which is our ofsett of 44
+  6) And then finally the adress of win() which is 0x080491f6
+  7) Inputting it manually + watching out for little endian gets the flag
+  8) picoCTF{addr3ss3s_ar3_3asy_5c6baa9e}
+  9) solution has this: python3 -c "import sys; sys.stdout.buffer.write(b'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqr\xf6\x91\x04\x08' + b'\x0a')" | nc saturn.picoctf.net 50382 which I like a lot, no manual input make it very easy. adding b'\x0a at the end to simulate pressing enter
 
 
 
