@@ -1,6 +1,6 @@
 # Echo Escape 1
 
-#### Question: Can you try to get the flag? Beware we have PIE!
+#### The "secure" echo service welcomes you politely… but what if you don’t stay polite? Can you make it reveal the hidden flag? 
 
  1) first I tried a couple of inputs but not much happening
  2) interesting line in code: read(0, buf, 128). This means that upto 128 bytes can be written to buf from stdin (0).
