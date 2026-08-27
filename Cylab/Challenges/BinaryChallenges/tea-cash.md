@@ -9,4 +9,4 @@
  5) So that program creates 6 chunks each having 0x80 = 128 bytes. %p is used to show addresses to us and to validate we input a real address
  6) yeah problem here is I can not run gdb runs some errors and the fixes I found did not work. I looked at walkthroughs to see if there are any that went into gdb and fixed it but found none
  7) https://blog.quarkslab.com/heap-exploitation-glibc-internals-and-nifty-tricks.html this is what I use to understand this thing since I saw it comeup in a walkthrough so it surely will have all the knowledge I need
- 8) putting my notes from that site into a seperate repo here [heap exploitation notes]([https://github.com/vuejs/vue](https://github.com/Sneeshah/Notes/edit/main/heap_exploitation/heap_exploitation.md))
+ 8) putting my notes from that site into a seperate repo here [heap exploitation notes](https://github.com/Sneeshah/Notes/edit/main/heap_exploitation/heap_exploitation.md)
