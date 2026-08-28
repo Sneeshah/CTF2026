@@ -1,4 +1,4 @@
-# Challenge Name
+# offset-cycle
 
 **Category:** binary exploitation
 **Difficulty:** Medium  
